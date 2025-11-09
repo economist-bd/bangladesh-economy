@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বাংলা অর্থনীতি ব্লগ — বাংলাদেশে বাজেট</title>
+
+  <!-- Bengali-friendly font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- PageFlip (StPageFlip) -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+  <!-- style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/cover.jpg" alt="logo" class="logo" onerror="this.style.display='none'">
+      <div>
+        <h1>বাংলা অর্থনীতি ব্লগ</h1>
+        <p>প্রথম বই: বাংলাদেশের বাজেট</p>
+      </div>
+    </div>
+
+    <div class="top-controls">
+      <button id="darkToggle" class="btn">Dark</button>
+      <button id="downloadBtn" class="btn secondary">Export PDF</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="viewer">
+      <div id="flipbook" aria-label="Flipbook viewer"></div>
+      <div class="viewer-controls">
+        <button id="prevBtn" class="btn small">← পূর্বের</button>
+        <span id="pageIndicator" class="indicator">—</span>
+        <button id="nextBtn" class="btn small">পরের →</button>
+      </div>
+    </section>
+
+    <aside class="sidebar" aria-label="Control panel">
+      <h2>নিয়ন্ত্রণ</h2>
+
+      <label class="row">
+        বই:
+        <select id="bookSelect"></select>
+        <button id="loadBookBtn" class="btn small">লোড</button>
+      </label>
+
+      <div class="section">
+        <h3>Auto features</h3>
+        <label><input type="checkbox" id="autoScrollToggle"> Auto-scroll</label>
+        <label><input type="checkbox" id="autoTurnToggle"> Auto-page-turn</label>
+        <div class="row">
+          <label>Interval: <span id="autoTurnVal">8</span>s</label>
+          <input id="autoTurnInterval" type="range" min="3" max="25" value="8">
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>ভয়েস রিডিং</h3>
+        <div class="row">
+          <button id="ttsPlay" class="btn small">পড়া শুরু</button>
+          <button id="ttsPause" class="btn small secondary">বিরতি/পুনরায়</button>
+        </div>
+        <label>ভয়েস:
+          <select id="voiceSelect"></select>
+        </label>
+      </div>
+
+      <div class="section">
+        <h3>ব্যাকগ্রাউন্ড মিউজিক</h3>
+        <div class="row">
+          <button id="musicPlay" class="btn small">Play</button>
+          <button id="musicPause" class="btn small secondary">Pause</button>
+        </div>
+        <label class="row">ভলিউম: <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.12"></label>
+      </div>
+
+      <div class="section small-note">
+        README: নতুন বই/অধ্যায় যোগ করতে `script.js`-এর `books` অবজেক্টে কনটেন্ট যোগ করো।
+      </div>
+    </aside>
+  </main>
+
+  <!-- background music: replace with your file in assets/ -->
+  <audio id="bgMusic" loop crossorigin="anonymous">
+    <source src="assets/bg-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
