@@ -51,6 +51,15 @@ const books = [
     ]
   },
 
+const chapters = [
+  "assets/chapters/chapter1.html",
+  "assets/chapters/chapter2.html"
+];
+
+
+
+   
+
   // তুমি চাইলে এখানেই আরও বই যোগ করতে পারো
 ];
 
