@@ -53,7 +53,8 @@ const books = [
 
 const chapters = [
   "assets/chapters/chapter1.html",
-  "assets/chapters/chapter2.html"
+  "assets/chapters/chapter2.html",
+   "assets/chapters/chapter3.html"
 ];
 
 
