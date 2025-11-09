@@ -1,114 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>বইয়ের পাতার মতো ব্লগ পোস্ট</title>
-  <style>
-    body {
-      background: #f9f5e7;
-      font-family: "Noto Serif Bengali", Georgia, serif;
-      color: #333;
-      line-height: 1.8;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .book {
-      width: 700px;
-      height: 90vh;
-      background: #fffaf2;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      padding: 40px 60px;
-      transition: transform 0.6s ease;
-    }
-
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
-    }
-
-    .controls {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 20px;
-    }
-
-    button {
-      background: #d8b899;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #cfa177;
-    }
-  </style>
+  <title>বাংলাদেশের বাজেট | বাংলা অর্থনীতি ব্লগ</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 
-  <div class="book" id="book">
-    <div class="page active">
-      <h1>বাংলাদেশের বাজেট</h1>
-      <p>বাংলাদেশের সরকারি বাজেট হলো একটি বার্ষিক আর্থিক পরিকল্পনা, যেখানে সরকার আয় ও ব্যয়ের হিসাব নির্ধারণ করে...</p>
-      <p>এই বাজেট দেশের অর্থনৈতিক দিকনির্দেশনা নির্ধারণে গুরুত্বপূর্ণ ভূমিকা রাখে।</p>
-    </div>
-    <div class="page">
-      <h2>বাজেটের ধরন</h2>
-      <p>রাজস্ব বাজেট ও উন্নয়ন বাজেট—এই দুই ভাগে বিভক্ত থাকে...</p>
-      <p>রাজস্ব বাজেটে সরকারের আয়-ব্যয় এবং উন্নয়ন বাজেটে নতুন প্রকল্প বাস্তবায়নের ব্যয় ধরা হয়।</p>
-    </div>
-    <div class="page">
-      <h2>ভবিষ্যৎ দিকনির্দেশনা</h2>
-      <p>ডিজিটাল রাজস্ব প্রশাসন, সবুজ বাজেট এবং প্রযুক্তিনির্ভর ব্যয় নিয়ন্ত্রণের দিকে এগোচ্ছে বাংলাদেশ।</p>
-    </div>
+  <div class="chapter">
+    <h1>বাংলাদেশের বাজেট</h1>
+    <p>বাংলাদেশের সরকারি বাজেট হলো একটি বার্ষিক অর্থনৈতিক পরিকল্পনা যেখানে সরকার নির্ধারণ করে আগামী অর্থবছরে কীভাবে আয় ও ব্যয় পরিচালিত হবে। এটি দেশের অর্থনৈতিক নীতি নির্ধারণ, উন্নয়ন প্রকল্প বাস্তবায়ন, এবং সামাজিক কল্যাণমূলক কর্মসূচি পরিচালনার মূল ভিত্তি।</p>
 
-    <div class="controls">
-      <button onclick="prevPage()">← আগের পৃষ্ঠা</button>
-      <button onclick="nextPage()">পরের পৃষ্ঠা →</button>
-    </div>
-  </div>
+    <h2>বাজেটের কাঠামো</h2>
+    <p>বাংলাদেশের বাজেট সাধারণত দুটি প্রধান অংশে বিভক্ত — রাজস্ব বাজেট এবং উন্নয়ন বাজেট। রাজস্ব বাজেটে সরকারের নিয়মিত আয় ও ব্যয় অন্তর্ভুক্ত থাকে। উন্নয়ন বাজেটে থাকে অবকাঠামো, শিক্ষা, স্বাস্থ্য, কৃষি ও প্রযুক্তি খাতে নতুন বিনিয়োগ ও প্রকল্প ব্যয়।</p>
 
-  <script>
-    let currentPage = 0;
-    const pages = document.querySelectorAll(".page");
+    <h2>রাজস্ব আয়ের উৎস</h2>
+    <ul>
+      <li>আয়কর ও মূল্য সংযোজন কর (ভ্যাট)</li>
+      <li>আমদানি-রপ্তানি শুল্ক</li>
+      <li>অন্য সরকারি ফি ও চার্জ</li>
+      <li>অভ্যন্তরীণ ও বৈদেশিক ঋণ</li>
+    </ul>
 
-    function showPage(index) {
-      pages.forEach(p => p.classList.remove("active"));
-      pages[index].classList.add("active");
-    }
+    <h2>বাজেট ঘাটতি</h2>
+    <p>যখন সরকারের ব্যয় তার আয়ের চেয়ে বেশি হয়, তখন বাজেট ঘাটতি তৈরি হয়। ঘাটতি পূরণের জন্য সরকার সাধারণত ব্যাংক ঋণ, বিদেশি সাহায্য, বা সঞ্চয়পত্র বিক্রির মাধ্যমে অর্থ সংগ্রহ করে। সঠিক আর্থিক ব্যবস্থাপনা ছাড়া এই ঘাটতি দীর্ঘমেয়াদে অর্থনৈতিক চাপ সৃষ্টি করতে পারে।</p>
 
-    function nextPage() {
-      if (currentPage < pages.length - 1) {
-        currentPage++;
-        showPage(currentPage);
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        showPage(currentPage);
-      }
-    }
-  </script>
-
-</body>
-</html>
+    <h2>বাজেটের প্রভাব</h2>
+    <p>বাজেট অর্থনীতিতে বহুমাত্রিক প্রভাব
