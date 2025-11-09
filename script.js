@@ -52,6 +52,13 @@ const books = [
   }
 ]; // books array ends here
 
+const chapters = [
+  "assets/chapters/chapter1.html",
+  "assets/chapters/chapter2.html",
+  "assets/chapters/chapter3.html"
+];
+
+
 // চাইলে এখানে নতুন variables বা comments রাখতে পারেন,
 // কিন্তু উপরের সমস্যাটির জন্য books এর কৌলাইন ঠিক থাকতে হবে।
 
