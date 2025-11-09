@@ -61,7 +61,7 @@ const chapters = [
    
 
   // তুমি চাইলে এখানেই আরও বই যোগ করতে পারো
-];
+
 
 /* ========================= PageFlip init ========================= */
 const container = document.getElementById('flipbook');
