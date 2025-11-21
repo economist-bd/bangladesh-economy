@@ -2,91 +2,110 @@
 <html lang="bn">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>বাংলা অর্থনীতি ব্লগ — বাংলাদেশে বাজেট</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>বাংলা অর্থনীতি ব্লগ</title>
 
-  <!-- Bengali-friendly font -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- PageFlip (StPageFlip) -->
+  
   <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 
-  <!-- style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="site-header">
     <div class="brand">
-      <img src="assets/cover.jpg" alt="logo" class="logo" onerror="this.style.display='none'">
+      <div class="logo-icon">📖</div>
       <div>
-        <h1>বাংলা অর্থনীতি ব্লগ</h1>
-        <p>প্রথম বই: বাংলাদেশের বাজেট</p>
+        <h1>বাংলা অর্থনীতি</h1>
+        <p id="currentBookTitle">বই লোড হচ্ছে...</p>
       </div>
     </div>
-
-    <div class="top-controls">
-      <button id="darkToggle" class="btn">Dark</button>
-      <button id="downloadBtn" class="btn secondary">Export PDF</button>
+    
+    <div class="header-controls">
+        <button id="menuToggleBtn" class="btn-icon" aria-label="Settings">
+            ⚙ সেটিংস
+        </button>
     </div>
   </header>
 
-  <main class="app">
-    <section class="viewer">
-      <div id="flipbook" aria-label="Flipbook viewer"></div>
-      <div class="viewer-controls">
-        <button id="prevBtn" class="btn small">← পূর্বের</button>
-        <span id="pageIndicator" class="indicator">—</span>
-        <button id="nextBtn" class="btn small">পরের →</button>
+  <main class="app-container">
+    
+    <section class="viewer-area">
+      <div id="flipbook" class="flipbook-wrapper"></div>
+      
+      <div class="bottom-controls">
+        <button id="prevBtn" class="nav-btn">← আগের পাতা</button>
+        <span id="pageIndicator" class="page-badge">0/0</span>
+        <button id="nextBtn" class="nav-btn">পরের পাতা →</button>
       </div>
     </section>
 
-    <aside class="sidebar" aria-label="Control panel">
-      <h2>নিয়ন্ত্রণ</h2>
-
-      <label class="row">
-        বই:
-        <select id="bookSelect"></select>
-        <button id="loadBookBtn" class="btn small">লোড</button>
-      </label>
-
-      <div class="section">
-        <h3>Auto features</h3>
-        <label><input type="checkbox" id="autoScrollToggle"> Auto-scroll</label>
-        <label><input type="checkbox" id="autoTurnToggle"> Auto-page-turn</label>
-        <div class="row">
-          <label>Interval: <span id="autoTurnVal">8</span>s</label>
-          <input id="autoTurnInterval" type="range" min="3" max="25" value="8">
-        </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>মেনু ও সেটিংস</h2>
+        <button id="closeMenuBtn" class="close-btn">×</button>
       </div>
 
-      <div class="section">
-        <h3>ভয়েস রিডিং</h3>
-        <div class="row">
-          <button id="ttsPlay" class="btn small">পড়া শুরু</button>
-          <button id="ttsPause" class="btn small secondary">বিরতি/পুনরায়</button>
+      <div class="sidebar-content">
+        <div class="control-group">
+          <label>বই নির্বাচন করুন:</label>
+          <select id="bookSelect" class="full-width-select"></select>
+          <button id="loadBookBtn" class="btn-primary full-width">বই খুলুন</button>
         </div>
-        <label>ভয়েস:
-          <select id="voiceSelect"></select>
-        </label>
-      </div>
 
-      <div class="section">
-        <h3>ব্যাকগ্রাউন্ড মিউজিক</h3>
-        <div class="row">
-          <button id="musicPlay" class="btn small">Play</button>
-          <button id="musicPause" class="btn small secondary">Pause</button>
+        <hr>
+
+        <div class="control-group">
+            <h3>অটো রিডিং</h3>
+            <label class="toggle-row">
+                <span>অটো স্ক্রল (Auto Scroll)</span>
+                <input type="checkbox" id="autoScrollToggle">
+            </label>
+            <label class="toggle-row">
+                <span>অটো পেজ টার্ন</span>
+                <input type="checkbox" id="autoTurnToggle">
+            </label>
+            <div class="slider-row">
+                <span>সময়: <span id="autoTurnVal">8</span>s</span>
+                <input id="autoTurnInterval" type="range" min="3" max="20" value="8">
+            </div>
         </div>
-        <label class="row">ভলিউম: <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.12"></label>
-      </div>
 
-      <div class="section small-note">
-        README: নতুন বই/অধ্যায় যোগ করতে `script.js`-এর `books` অবজেক্টে কনটেন্ট যোগ করো।
+        <hr>
+
+        <div class="control-group">
+            <h3>অডিও কন্ট্রোল</h3>
+            <div class="btn-group">
+                <button id="ttsPlay" class="btn-small">🔊 ভয়েস অন</button>
+                <button id="ttsPause" class="btn-small">⏸ পজ</button>
+            </div>
+            <select id="voiceSelect" class="mt-2"></select>
+            
+            <div class="mt-3">
+                <label>ব্যাকগ্রাউন্ড মিউজিক</label>
+                <div class="btn-group">
+                    <button id="musicPlay" class="btn-small">▶ Play</button>
+                    <button id="musicPause" class="btn-small">⏸ Pause</button>
+                </div>
+                <input id="musicVol" type="range" min="0" max="1" step="0.1" value="0.2">
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="control-group">
+            <button id="darkToggle" class="btn-secondary full-width">🌙 ডার্ক মোড</button>
+            <button id="downloadBtn" class="btn-outline full-width mt-2">⬇ PDF ডাউনলোড</button>
+        </div>
       </div>
     </aside>
+
   </main>
 
-  <!-- background music: replace with your file in assets/ -->
   <audio id="bgMusic" loop crossorigin="anonymous">
     <source src="assets/bg-music.mp3" type="audio/mpeg">
   </audio>
