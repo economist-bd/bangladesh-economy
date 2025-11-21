@@ -71,3 +71,30 @@ body.dark{background:#111;color:#ddd}
 body.dark .sidebar{background:#161616;color:#ddd}
 body.dark .btn.secondary{background:#222;color:#ddd;border-color:#333}
 body.dark .pf-page div{color:#ddd}
+
+/* style.css এর শেষে এই অংশটুকু যোগ করুন */
+
+/* পেজের ভেতরের কন্টেন্ট যেন উপচে না পড়ে এবং স্ক্রল করা যায় */
+.page-content {
+    height: 100%;        /* পুরো পেজ জুড়ে থাকবে */
+    overflow-y: auto;    /* লেখা বেশি হলে স্ক্রলবার আসবে */
+    padding: 20px 25px;  /* লেখার চারপাশে ফাঁকা জায়গা */
+    display: block;
+    scrollbar-width: thin; /* ফায়ারফক্সের জন্য সরু স্ক্রলবার */
+    scrollbar-color: #d8b899 transparent; /* স্ক্রলবারের রং */
+}
+
+/* ক্রোম বা সাফারির জন্য স্ক্রলবার স্টাইল */
+.page-content::-webkit-scrollbar {
+    width: 6px;
+}
+.page-content::-webkit-scrollbar-thumb {
+    background-color: #d8b899;
+    border-radius: 3px;
+}
+
+/* ডার্ক মোডে পেজের ব্যাকগ্রাউন্ড ঠিক রাখা */
+body.dark .pf-page, body.dark .page-content {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
