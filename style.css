@@ -49,6 +49,13 @@ input[type="range"]{flex:1}
 .pf-page h1, .pf-page h2 { margin:0 0 12px 0; color:#111 }
 .pf-page p { margin:0 0 12px 0; text-align:justify }
 
+/* style.css এর শেষে এটি চেক করুন বা যোগ করুন */
+.pf-page {
+    background-color: #fffdf7; /* পৃষ্ঠার রঙ */
+    border: 1px solid #eee;
+    overflow: hidden; /* কন্টেন্ট বাইরে যাওয়া রোধ করতে */
+}
+
 /* small note */
 .small-note{font-size:13px;color:var(--muted);margin-top:12px}
 
